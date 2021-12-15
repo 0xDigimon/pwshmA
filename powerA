@@ -1,0 +1,20 @@
+function Remove-File {
+    [CmdletBinding(SupportsShouldProcess = $true)]
+    param (
+        [parameter()]
+        $pathfile
+    )
+    #Write-Verbose "Deleting$pathfile"
+    if ($PSCmdlet.ShouldProcess("$pathfile", "Deleting file")) {
+        Remove-Item $pathfile -Confirm  
+    }
+    
+}
+function Test-FileExist {
+   
+    param (
+        [parameter()]
+        $pathfile
+    )
+    Test-Path $pathfile
+}
